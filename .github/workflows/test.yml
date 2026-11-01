@@ -1,0 +1,11 @@
+name: Test
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run rule and learning tests
+        run: node --test tests/engine.test.js tests/worker.test.js
